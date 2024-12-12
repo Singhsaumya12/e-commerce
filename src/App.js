@@ -1,14 +1,45 @@
 
 import './App.css';
-import Header from './components/header/header';
-import Footer from './components/footer/footer'
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Header from './components/header/Header'
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './GlobalStyle';
+import Home from './Home';
+import About from './About';
+import Products from './Products';
+import Contact from './Contact';
+import WholeProduct from './WholeProduct';
+import Cart from './Cart';
+import ErrorPage from './ErrorPage';
+import Footer from './components/Footer';
 
 function App() {
+  const theme = {
+    colors:{
+      bg:"#000",
+    },
+  };
   return (
    <>
-  <Header/>
-  <Footer />
+  
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+      <Header/>
+          <GlobalStyle/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/wholeproduct/:id" element={<WholeProduct/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="*" element={<ErrorPage/>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </ThemeProvider>  
    </>
+   
   );
 }
 
