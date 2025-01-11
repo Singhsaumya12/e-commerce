@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Aboutt from "./assests/images/aboutt.png";
 import { NavLink } from "react-router-dom";
-
+import { useProductContext} from "./context/productcontext";
 
 
 const About = () => {
+  const myName =  useProductContext
   return (
+   <>
+    {myName}
     <div className=" flex flex-col md:flex-row sm:flex-row items-center justify-between gap-6 px-4 sm:px-6 lg:px-20 py-10 max-w-[1440px] mx-auto" > 
     {/* Text Section */}
     <div className="flex flex-col items-start text-center md:text-left px-4 w-full md:w-1/2 space-y-2">
@@ -27,13 +30,14 @@ const About = () => {
     {/* Image Section */}
     
       <img
-        className="w-[80%] sm:w-[60%] md:w-full h-auto max-w-sm md:max-w-md lg:max-w-lg z-10"
+        className="w-[80%] sm:w-[60%] md:w-full h-auto max-w-sm md:max-w-md lg:max-w-lg"
         src={Aboutt}
         alt="About"
       />
      
   </div>
   
+   </>
   
   );
 };

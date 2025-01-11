@@ -8,10 +8,10 @@ import Home from './Home';
 import About from './About';
 import Products from './Products';
 import Contact from './Contact';
-import WholeProduct from './WholeProduct';
 import Cart from './Cart';
 import ErrorPage from './ErrorPage';
 import Footer from './components/Footer';
+import SingleProduct from './SingleProduct';
 
 function App() {
   const theme = {
@@ -31,7 +31,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/products" element={<Products/>}/>
           <Route path="/contact" element={<Contact/>}/>
-          <Route path="/wholeproduct/:id" element={<WholeProduct/>}/>
+          <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="*" element={<ErrorPage/>}/>
         </Routes>
