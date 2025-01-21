@@ -10,8 +10,8 @@ import { MdSecurity } from "react-icons/md";
 import Star from './components/Star'
 import AddToCart from './components/AddToCart'
 
-
-const API = "https://api.pujakaitem.com/api/products"
+const API_URL = process.env.REACT_APP_MyBackendServerUrl;
+const API = API_URL;
 
 const SingleProduct = () => {
   const {getSingleProduct ,isSingleLoading,
