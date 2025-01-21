@@ -6,10 +6,12 @@ import axios from "axios";
 import { createContext, useContext ,useEffect, useReducer} from "react";
 import reducer from "../reducer/productReducer"
 
-
+const API_URL = process.env.REACT_APP_MyBackendServerUrl;
 const AppContext = createContext();
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = API_URL;
+console.log("API_URL:", API_URL); // Debugging
+console.log("API:", API);  
 const initialState = {
     isLoading: false,
     isError: false,
