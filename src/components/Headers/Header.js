@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Logo from '../../assests/images/eShopp.png' 
 import { NavLink } from 'react-router-dom'
-import Nav from "../header/Nav"
+import Nav from "../Headers/Nav"
 
 
 const Header = () => {
