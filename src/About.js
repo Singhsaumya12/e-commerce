@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Aboutt from "./assests/images/aboutt.png";
 import { NavLink } from "react-router-dom";
 import { useProductContext} from "./context/productcontext";
