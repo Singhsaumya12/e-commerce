@@ -1,41 +1,56 @@
-import React ,{useState} from 'react'
+import React, { useState, useEffect } from 'react';
 
+const MyImage = ({ imgs }) => {
+  // Normalize images
+  const imagesArray = Array.isArray(imgs)
+    ? imgs
+    : imgs
+    ? [{ url: imgs, filename: "product" }]
+    : [];
 
-const MyImage = ({imgs = [{url:" "}]}) => {
-  //array of objects
-  console.log("test",imgs);
-  const [mainImage , setMainImage] = useState(imgs[0]);
-  
+    console.log(imagesArray,"imagesArray");
+    
+  const [mainImage, setMainImage] = useState(imagesArray[0]);
+
+  // Update main image when data changes
+  useEffect(() => {
+    setMainImage(imagesArray[0]);
+  }, [imgs]);
+
+  if (!imagesArray.length) {
+    return <div>No Image Available</div>;
+  }
+
   return (
-    <div className="flex  p-5 md:p-10">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {/* Left Column */}
-      <div className="space-y-4 p-4 md:col-span-1">
-        {imgs.map((curElm, index) => (
-          <figure key={index}>
-            <img
-              src={curElm.url}
-              alt={curElm.filename}
-              className="object-cover cursor-pointer w-full h-auto"
-              onClick={() => setMainImage(curElm)}
-            />
-          </figure>
-        ))}
-      </div>
-  
-      {/* Right Column */}
-      <div className="flex items-center justify-center col-span-1 md:col-span-2">
-        <img 
-          src={mainImage.url} 
-          alt={mainImage.filename} 
-          className="max-w-full max-h-full w-full md:w-auto h-auto" 
-        />
+    <div className="flex p-5 md:p-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+
+        {/* Left Column (Thumbnails) */}
+        <div className="space-y-4 p-2 md:col-span-1">
+          {imagesArray.map((curElm, index) => (
+            <figure key={index}>
+              <img
+                src={curElm.url}
+                alt={curElm.filename || "product"}
+                className="object-cover cursor-pointer w-full h-24 border hover:border-blue-500"
+                onClick={() => setMainImage(curElm)}
+              />
+            </figure>
+          ))}
+        </div>
+
+        {/* Right Column (Main Image) */}
+        <div className="flex items-center justify-center md:col-span-2">
+          <img
+            src={mainImage?.url}
+            alt={mainImage?.filename || "product"}
+            className="max-w-full max-h-[400px] object-contain"
+          />
+        </div>
+
       </div>
     </div>
-  </div>
-  
+  );
+};
 
-  )
-}
-
-export default MyImage
+export default MyImage;

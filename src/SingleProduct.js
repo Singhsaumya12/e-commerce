@@ -22,12 +22,29 @@ const SingleProduct = () => {
   const {id} = useParams();
   console.log("file",id)
 
-  const {
-    id:alias, name , company ,price ,description,category,stock,stars,reviews,image} = singleProduct;
+  // const {
+  //   id:alias, name , company ,price ,description,category,stock,stars,reviews,image} = singleProduct;
+const product = singleProduct?.[0] || {};
+
+const {
+  id: alias,
+  name,
+  company,
+  price,
+  description,
+  category,
+  stock,
+  stars,
+  reviews,
+  image
+} = product;
+
+    console.log(image,"dfghjk");
+    
 
   useEffect(()=>{
     getSingleProduct(`${API}?id=${id}`);
-  },[]);
+  },[id]);
 
   if(isSingleLoading){
     return <div className=''>Loading.....</div>
@@ -84,7 +101,7 @@ const SingleProduct = () => {
             <p >Brand: <span className='text-2xl font-semibold'>{company}</span></p>
           </div>
           <hr className='bg-black h-0.5 border-none'/>
-          {stock > 0 && <AddToCart product={singleProduct}/>}
+          {stock > 0 && <AddToCart product={product}/> }
          </div>
        </div>
      </div>
