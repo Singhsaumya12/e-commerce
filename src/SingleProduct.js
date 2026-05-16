@@ -27,12 +27,10 @@ const SingleProduct = () => {
 const product = singleProduct?.[0] || {};
 
 const {
-  id: alias,
   name,
   company,
   price,
   description,
-  category,
   stock,
   stars,
   reviews,

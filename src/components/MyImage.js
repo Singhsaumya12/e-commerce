@@ -15,7 +15,7 @@ const MyImage = ({ imgs }) => {
   // Update main image when data changes
   useEffect(() => {
     setMainImage(imagesArray[0]);
-  }, [imgs]);
+  }, [imagesArray]);
 
   if (!imagesArray.length) {
     return <div>No Image Available</div>;

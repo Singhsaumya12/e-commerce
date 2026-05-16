@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  
+import React from 'react';  
 
 import Logo from '../../assests/images/eShopp.png' 
 import { NavLink } from 'react-router-dom'
@@ -11,7 +11,7 @@ const Header = () => {
     <>
     <div className='w-full flex justify-between items-center bg-gray-100 border border-black'>
       <NavLink className="" to="/">
-        <img className='h-[8rem]  border-4 border-y-red-900 border-x-green-600 ' src={Logo}/>
+        <img className='h-[8rem]  border-4 border-y-red-900 border-x-green-600 ' src={Logo} alt="logo"/>
       </NavLink>
       <Nav />
       </div>     

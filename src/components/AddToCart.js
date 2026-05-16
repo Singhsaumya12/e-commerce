@@ -4,7 +4,7 @@ import CartAmountToggle from './CartAmountToggle';
 import { NavLink } from 'react-router-dom';
 
 const AddToCart = ({ product }) => {
-  const { id, colors, stock } = product;
+  const { colors, stock } = product; //id remover from here
   const [color, setColor] = useState(colors[0]);
   const[amount ,setAmount] = useState(1);
 

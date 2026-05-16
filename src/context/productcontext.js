@@ -58,7 +58,7 @@ const AppProvider = ({children}) => {
 
     useEffect(() => {
         getProducts(API);
-    }, [])
+    }, [API])
 
     return ( 
     <AppContext.Provider value={{...state ,getSingleProduct}}>{children}</AppContext.Provider>
